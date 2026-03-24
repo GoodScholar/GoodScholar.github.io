@@ -1,6 +1,36 @@
-import { defineConfig } from 'vitepress'
+import { getThemeConfig, defineConfig } from '@sugarat/theme/node'
+
+const blogTheme = getThemeConfig({
+  author: 'NIHoa',
+  // 文章默认作者
+  friend: [],
+  // 推荐文章
+  recommend: {
+    title: '🔥 相关文章',
+    nextText: '换一组',
+    pageSize: 9,
+    empty: '暂无相关文章'
+  },
+  // 评论（暂不开启）
+  // comment: {},
+  // 文章元信息
+  article: {
+    readingTime: true,
+    analyzeTitles: true
+  },
+  // 首页文章列表
+  home: {
+    name: 'NIHoa 的技术博客',
+    motto: '深耕跨端技术，探索 Flutter、Taro、React Native 与 AI 的无限可能',
+    inspiring: '',
+    pageSize: 10
+  },
+  // 搜索
+  search: false
+})
 
 export default defineConfig({
+  extends: blogTheme,
   title: 'NIHoa 的技术博客',
   description: '跨端开发 · Flutter · Taro · React Native · AI',
   lang: 'zh-CN',
@@ -9,10 +39,14 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/favicon.ico' }],
   ],
 
-  themeConfig: {
-    logo: '/logo.svg',
-    siteTitle: 'NIHoa 的技术博客',
+  vite: {
+    optimizeDeps: {
+      include: ['element-plus'],
+      exclude: ['@sugarat/theme']
+    }
+  },
 
+  themeConfig: {
     nav: [
       { text: '首页', link: '/' },
       {
@@ -174,7 +208,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/' }
+      { icon: 'github', link: 'https://github.com/GoodScholar' }
     ],
 
     search: {
@@ -206,7 +240,7 @@ export default defineConfig({
     },
 
     footer: {
-      message: '用 VitePress 构建',
+      message: '用 ❤️ 和 VitePress 构建',
       copyright: '© 2026 NIHoa 的技术博客'
     }
   },
