@@ -24,6 +24,7 @@ const blogTheme = getThemeConfig({
     inspiring: '',
     pageSize: 10,
     avatarMode: 'card',
+    logo: '/avatar.jpg',
   },
   // 作者头像
   authorList: [

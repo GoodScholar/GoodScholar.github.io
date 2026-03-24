@@ -1,0 +1,53 @@
+/* ========================================
+ * 自定义背景样式 — 淡色渐变风格
+ * 覆盖 @sugarat/theme 默认的花哨背景
+ * ======================================== */
+
+/* 移除首页重复平铺的背景图 */
+.VPHome::before {
+  background-image: none !important;
+  background: linear-gradient(
+    135deg,
+    rgba(240, 245, 255, 0.8) 0%,
+    rgba(230, 240, 255, 0.6) 25%,
+    rgba(235, 230, 255, 0.5) 50%,
+    rgba(240, 245, 255, 0.4) 75%,
+    rgba(245, 240, 255, 0.3) 100%
+  ) !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+/* 首页渐变覆盖层 — 柔和的白→浅蓝→浅紫 */
+.VPHome {
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(235, 245, 255, 0.9) 30%,
+    rgba(230, 235, 255, 0.7) 60%,
+    rgba(240, 235, 255, 0.5) 100%
+  ) !important;
+}
+
+/* 暗色模式下的背景适配 */
+html.dark .VPHome::before {
+  background-image: none !important;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 18, 25, 0.9) 0%,
+    rgba(20, 25, 40, 0.8) 25%,
+    rgba(25, 20, 40, 0.7) 50%,
+    rgba(15, 18, 30, 0.6) 75%,
+    rgba(20, 22, 35, 0.5) 100%
+  ) !important;
+}
+
+html.dark .VPHome {
+  background: linear-gradient(
+    160deg,
+    rgba(15, 15, 20, 1) 0%,
+    rgba(20, 25, 45, 0.95) 30%,
+    rgba(25, 20, 45, 0.85) 60%,
+    rgba(18, 18, 30, 0.8) 100%
+  ) !important;
+}
