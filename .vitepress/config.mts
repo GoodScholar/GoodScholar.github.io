@@ -16,15 +16,23 @@ const blogTheme = getThemeConfig({
   // 文章元信息
   article: {
     readingTime: true,
-    analyzeTitles: true
   },
   // 首页文章列表
   home: {
     name: 'NIHoa 的技术博客',
     motto: '深耕跨端技术，探索 Flutter、Taro、React Native 与 AI 的无限可能',
     inspiring: '',
-    pageSize: 10
+    pageSize: 10,
+    avatarMode: 'card',
   },
+  // 作者头像
+  authorList: [
+    {
+      nickname: 'NIHoa',
+      url: 'https://github.com/GoodScholar',
+      des: '深耕跨端技术',
+    }
+  ],
   // 搜索
   search: false
 })
