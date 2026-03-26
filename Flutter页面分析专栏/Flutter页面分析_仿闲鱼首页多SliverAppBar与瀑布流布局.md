@@ -180,3 +180,6 @@ Colors.primaries[index % Colors.primaries.length]
 好了，本期内容到这里，感兴趣的话欢迎点赞、在看，我们下期见！Bye~
 
 **标签**：`#Flutter` `#CustomScrollView` `#SliverAppBar` `#SliverGrid` `#闲鱼首页`
+
+
+*📝 作者：NIHoa ｜ 系列：Flutter页面分析专栏 ｜ 更新日期：2025-04-10*

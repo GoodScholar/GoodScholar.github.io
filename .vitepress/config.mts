@@ -76,6 +76,7 @@ export default defineConfig({
         items: [
           { text: 'Skills 系列', link: '/Skills文章/01-Skills入门-AI编程助手的技能加点指南' },
           { text: 'Vibe Coding 系列', link: '/Skills文章/Vibe-Coding不是让AI写代码这么简单' },
+          { text: 'GStack 系列', link: '/GStack实战指南系列/01-初识GStack-把ClaudeCode变成虚拟开发团队' },
         ]
       },
       { text: '程序人生', link: '/程序人生/距离软件行业大裁员还有不到2年' },
@@ -238,6 +239,8 @@ export default defineConfig({
           items: [
             { text: 'Vibe Coding提示词模式大全', link: '/Skills文章/Vibe-Coding提示词模式大全' },
             { text: '从Skills到Vibe Coding', link: '/Skills文章/从Skills到Vibe-Coding-AI编程的进化路径' },
+            { text: 'GStack vs Superpowers', link: '/Skills文章/GStack-vs-Superpowers-两大AI编程技能包深度对比' },
+            { text: 'GStack实战使用指南', link: '/Skills文章/GStack细节分析与实战使用指南' },
           ]
         }
       ],
@@ -246,6 +249,18 @@ export default defineConfig({
           text: '程序人生',
           items: [
             { text: '距离软件行业大裁员还有不到2年', link: '/程序人生/距离软件行业大裁员还有不到2年' },
+          ]
+        }
+      ],
+      '/GStack实战指南系列/': [
+        {
+          text: 'GStack 实战指南',
+          items: [
+            { text: '01-初识 GStack 流水库', link: '/GStack实战指南系列/01-初识GStack-把ClaudeCode变成虚拟开发团队' },
+            { text: '02-产品把控与架构审定', link: '/GStack实战指南系列/02-产品与架构-用CEO与技术总监视角锁定项目边界' },
+            { text: '03-防御级代码审查拦截', link: '/GStack实战指南系列/03-对抗性审查-深入探索review代码深度审计防线' },
+            { text: '04-无头浏览器端到端测试', link: '/GStack实战指南系列/04-自动化QA-让AI亲自操控网页做端到端测试' },
+            { text: '05-一键出海自动化交付闭环', link: '/GStack实战指南系列/05-交付闭环-从提交流水线到ship一键发版' },
           ]
         }
       ],

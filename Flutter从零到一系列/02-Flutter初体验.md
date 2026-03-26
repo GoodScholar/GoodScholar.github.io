@@ -577,3 +577,7 @@ class _QuotePageState extends State<QuotePage> {
 ---
 
 *本文是「Flutter 从零到一」系列第 2 篇，共 13 篇。*
+
+
+---
+*📝 作者：NIHoa ｜ 系列：Flutter从零到一系列 ｜ 更新日期：2025-03-02*

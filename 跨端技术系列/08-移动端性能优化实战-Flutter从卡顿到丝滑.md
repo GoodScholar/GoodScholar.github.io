@@ -390,3 +390,7 @@ flutter build ios --release
 > 而是养成**随手清理的习惯**：写 Widget 顺手加 `const`，
 > 用列表随手用 `builder`，写 Controller 随手写 `dispose`。
 > **好习惯比好工具更重要。**
+
+
+---
+*📝 作者：NIHoa ｜ 系列：跨端技术系列 ｜ 更新日期：2026-01-08*

@@ -301,3 +301,7 @@ type UserMap = Record<string, User>  // { [key: string]: User }
 ---
 
 *本文是「Taro 从零到一」系列第 2 篇，共 10 篇。*
+
+
+---
+*📝 作者：NIHoa ｜ 系列：Taro从零到一系列 ｜ 更新日期：2024-06-02*

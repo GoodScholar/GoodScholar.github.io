@@ -340,3 +340,7 @@ const toggleTheme = inject<() => void>('toggleTheme')
 ---
 
 *本文是「Taro+Vue3 入门」系列第 2 篇，共 10 篇。*
+
+
+---
+*📝 作者：NIHoa ｜ 系列：Taro+Vue3入门系列 ｜ 更新日期：2024-05-02*

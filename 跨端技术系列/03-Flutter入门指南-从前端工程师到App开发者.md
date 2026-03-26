@@ -860,3 +860,7 @@ class HomeScreen extends ConsumerWidget {
 > 学 Flutter 就像学骑自行车 — 你不需要先背完物理学原理，只需要**跨上去蹬几圈**。
 > 从第一个 `Text('Hello')` 开始，每天写一个小组件，四周后你就能独立交付 App。
 > **最好的学习方法，就是现在就 `flutter create` 一个项目，然后开始写代码。**
+
+
+---
+*📝 作者：NIHoa ｜ 系列：跨端技术系列 ｜ 更新日期：2026-01-03*
