@@ -71,6 +71,13 @@ export default defineConfig({
         ]
       },
       { text: 'AI 学习', link: '/前端转AI学习手册/01_Python基础语法' },
+      {
+        text: 'AI 编程',
+        items: [
+          { text: 'Skills 系列', link: '/Skills文章/01-Skills入门-AI编程助手的技能加点指南' },
+          { text: 'Vibe Coding 系列', link: '/Skills文章/Vibe-Coding不是让AI写代码这么简单' },
+        ]
+      },
       { text: '程序人生', link: '/程序人生/距离软件行业大裁员还有不到2年' },
     ],
 
@@ -203,6 +210,34 @@ export default defineConfig({
             { text: '08-RAG知识库系统', link: '/前端转AI学习手册/08_RAG知识库系统' },
             { text: '09-AI Agent开发', link: '/前端转AI学习手册/09_AI_Agent开发' },
             { text: '10-差异化方向与求职', link: '/前端转AI学习手册/10_差异化方向与求职' },
+          ]
+        }
+      ],
+      '/Skills文章/': [
+        {
+          text: 'Skills 系列',
+          items: [
+            { text: '01-Skills入门：技能加点指南', link: '/Skills文章/01-Skills入门-AI编程助手的技能加点指南' },
+            { text: '02-从提示词到Skills', link: '/Skills文章/从提示词到Skills-AI编程的进化之路' },
+            { text: '03-10分钟打造你的第一个Skill', link: '/Skills文章/10分钟打造你的第一个AI-Skill' },
+            { text: '04-AI编程工具三国杀', link: '/Skills文章/AI编程工具三国杀-Cursor-vs-ClaudeCode-vs-Gemini' },
+          ]
+        },
+        {
+          text: 'Vibe Coding 系列',
+          items: [
+            { text: '01-Vibe Coding不是让AI写代码这么简单', link: '/Skills文章/Vibe-Coding不是让AI写代码这么简单' },
+            { text: '02-我用Vibe Coding从零做了一个AI推理游戏', link: '/Skills文章/我用Vibe-Coding从零做了一个AI推理游戏' },
+            { text: '03-Vibe Coding工具怎么选', link: '/Skills文章/Vibe-Coding工具怎么选-Cursor-vs-ClaudeCode-vs-Bolt' },
+            { text: '04-不看代码行不行？质量红线', link: '/Skills文章/不看代码行不行-Vibe-Coding的质量红线' },
+            { text: '05-Vibe Coding时代的新技能树', link: '/Skills文章/Vibe-Coding时代程序员的新技能树' },
+          ]
+        },
+        {
+          text: '番外篇',
+          items: [
+            { text: 'Vibe Coding提示词模式大全', link: '/Skills文章/Vibe-Coding提示词模式大全' },
+            { text: '从Skills到Vibe Coding', link: '/Skills文章/从Skills到Vibe-Coding-AI编程的进化路径' },
           ]
         }
       ],
