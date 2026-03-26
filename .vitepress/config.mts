@@ -249,6 +249,9 @@ export default defineConfig({
           text: '程序人生',
           items: [
             { text: '距离软件行业大裁员还有不到2年', link: '/程序人生/距离软件行业大裁员还有不到2年' },
+            { text: 'AI Skills 正在重新定义「10x 程序员」', link: '/程序人生/AI-Skills正在重新定义10x程序员' },
+            { text: 'UI/UX 设计师会被 AI 取代吗', link: '/程序人生/UIUX设计师会被AI取代吗' },
+            { text: 'AI 时代的互联网新分工', link: '/程序人生/AI时代的互联网新分工' },
           ]
         }
       ],
