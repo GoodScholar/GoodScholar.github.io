@@ -1,3 +1,12 @@
+---
+date: 2025-04-09
+tags:
+  - Flutter
+  - oktoast
+  - Toast
+  - 动画
+  - 工具类封装
+---
 # 🍞 Flutter 页面分析：手把手封装一个有动画的 Toast 工具类
 
 Flutter | 页面分析系列

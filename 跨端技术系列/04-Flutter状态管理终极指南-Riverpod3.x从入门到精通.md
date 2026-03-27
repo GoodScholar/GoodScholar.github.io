@@ -1,3 +1,6 @@
+---
+date: 2026-01-04
+---
 # 🧠 Flutter 状态管理终极指南：Riverpod 3.x 从入门到精通
 
 > 状态管理是 Flutter 开发的**分水岭** — 入门用 `setState`，专业用 Riverpod。

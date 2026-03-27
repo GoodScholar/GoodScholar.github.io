@@ -1,3 +1,6 @@
+---
+date: 2025-04-05
+---
 # Flutter | 第5期 - Skeletonizer：一行代码实现骨架屏
 
 本期为大家分享如何在 Flutter 中去做骨架屏（Skeleton Loading）功能，用 skeletonizer 插件实现零模板代码的骨架屏效果，感兴趣的话和我一起来探索一下呗~

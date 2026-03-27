@@ -1,3 +1,12 @@
+---
+date: 2025-04-10
+tags:
+  - Flutter
+  - CustomScrollView
+  - SliverAppBar
+  - SliverGrid
+  - 闲鱼首页
+---
 # 🐟 Flutter 页面分析：仿闲鱼首页的多 SliverAppBar + 瀑布流布局
 
 Flutter | 页面分析系列

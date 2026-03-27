@@ -1,3 +1,6 @@
+---
+date: 2025-04-04
+---
 # Flutter | 第4期 - image_picker + image_cropper：图片选择与裁剪
 
 本期为大家分享如何在 Flutter 中去做图片选择和裁剪功能，用 image_picker 从相册/相机获取图片，再用 image_cropper 进行裁剪编辑，感兴趣的话和我一起来探索一下呗~

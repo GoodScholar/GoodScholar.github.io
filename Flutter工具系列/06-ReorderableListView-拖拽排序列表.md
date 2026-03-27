@@ -1,3 +1,6 @@
+---
+date: 2025-04-07
+---
 # Flutter | 第6期 - ReorderableListView：拖拽排序列表
 
 本期为大家分享如何在 Flutter 中实现列表拖拽排序功能，用 ReorderableListView 让用户通过长按拖动的方式自由调整列表顺序，感兴趣的话和我一起来探索一下呗~

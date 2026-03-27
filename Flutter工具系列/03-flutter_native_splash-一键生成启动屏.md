@@ -1,3 +1,6 @@
+---
+date: 2025-04-03
+---
 # Flutter | 第3期 - flutter_native_splash：一键生成启动屏
 
 本期为大家分享如何在 Flutter 中去做应用启动屏（Splash Screen）功能，用 flutter_native_splash 插件一键生成 Android 和 iOS 原生启动屏，感兴趣的话和我一起来探索一下呗~

@@ -1,3 +1,12 @@
+---
+date: 2025-04-12
+tags:
+  - Flutter
+  - LiquidGlass
+  - 动画效果
+  - iOS26
+  - 着色器
+---
 # 🫧 Flutter 页面分析：用 liquid_glass_easy 实现 iOS 26 风格的液态玻璃效果
 
 Flutter | 页面分析系列

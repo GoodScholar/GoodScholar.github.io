@@ -1,3 +1,6 @@
+---
+date: 2025-04-08
+---
 # Flutter | 第8期 - Flutter 官方 Skills：AI Agent 专属开发技能库
 
 Flutter 官方在 GitHub 上开源了 `flutter/skills` 仓库，这是一套专为 AI Agent 设计的 Flutter 开发专业技能集合。它能让 GitHub Copilot、Claude Code、Cursor 等 AI 编码助手更懂 Flutter，感兴趣的话和我一起来了解一下呗~

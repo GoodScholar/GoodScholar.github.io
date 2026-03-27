@@ -1,3 +1,6 @@
+---
+date: 2025-04-02
+---
 # Flutter | 第2期 - WebView：Flutter 与 H5 混合开发全攻略
 
 本期为大家分享如何在 Flutter 中去做 WebView 混合开发功能，包括 H5 页面加载、JS 与 Flutter 双向通信、登录态同步等实战场景，感兴趣的话和我一起来探索一下呗~

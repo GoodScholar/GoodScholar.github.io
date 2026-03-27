@@ -1,3 +1,6 @@
+---
+date: 2025-04-25
+---
 # Superpowers 实战指南 | 第6期 - 完整实战：用 Superpowers 从零构建一个 Markdown 笔记应用
 
 > 🎯 前五篇文章讲完了 Superpowers 的所有核心技能，现在正式进入"真刀真枪"的实战环节。本期我们将完整走通 Superpowers 的全流程，从零构建一个 **Markdown 笔记应用**——从头脑风暴到 PR 合并，一步不少。

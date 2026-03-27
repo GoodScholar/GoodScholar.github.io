@@ -1,3 +1,6 @@
+---
+date: 2024-06-02
+---
 # ⚛️ Taro 从零到一（二）：React + TypeScript 基础速览
 
 > **系列导读**：Taro 以 React 为核心框架，如果你还不太熟悉 React 和 TypeScript，

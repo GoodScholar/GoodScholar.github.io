@@ -1,3 +1,12 @@
+---
+date: 2025-04-11
+tags:
+  - Flutter
+  - url_launcher
+  - 邮件发送
+  - TextField
+  - 页面分析
+---
 # 📧 Flutter 页面分析：发送建议邮件页
 
 Flutter | 页面分析系列
