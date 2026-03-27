@@ -12,8 +12,12 @@ export default defineConfig({
   description: "跨端开发 · Flutter · Taro · React Native · AI",
   lang: 'zh-CN',
   cleanUrls: true,
+  head: [
+    ['link', { rel: 'icon', href: '/avatar.jpg' }]
+  ],
 
   themeConfig: {
+    logo: '/avatar.jpg',
     nav: [
       { text: '首页', link: '/' },
       {
