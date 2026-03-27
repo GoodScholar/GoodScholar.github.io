@@ -1,6 +1,13 @@
 import { defineConfig } from 'vitepress'
+import { getThemeConfig } from '@sugarat/theme/node'
+
+// 所有的博客相关主题功能都可以在此对象内部自由添加，比如评论、RSS、文章摘要等
+const blogTheme = getThemeConfig({
+  author: 'NIHoa'
+})
 
 export default defineConfig({
+  extends: blogTheme,
   title: "NIHoa 的技术博客",
   description: "跨端开发 · Flutter · Taro · React Native · AI",
   lang: 'zh-CN',
