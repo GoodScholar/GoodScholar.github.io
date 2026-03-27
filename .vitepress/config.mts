@@ -4,6 +4,7 @@ export default defineConfig({
   title: "NIHoa 的技术博客",
   description: "跨端开发 · Flutter · Taro · React Native · AI",
   lang: 'zh-CN',
+  cleanUrls: true,
 
   themeConfig: {
     nav: [
