@@ -1,5 +1,11 @@
 ---
 date: 2025-04-04
+tags:
+  - Flutter
+  - 图片选择
+  - 图片裁剪
+  - 相机
+  - 相册
 ---
 # Flutter | 第4期 - image_picker + image_cropper：图片选择与裁剪
 

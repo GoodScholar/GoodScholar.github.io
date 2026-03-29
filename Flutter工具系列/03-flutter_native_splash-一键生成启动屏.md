@@ -1,5 +1,10 @@
 ---
 date: 2025-04-03
+tags:
+  - Flutter
+  - 启动屏
+  - Splash Screen
+  - 原生配置
 ---
 # Flutter | 第3期 - flutter_native_splash：一键生成启动屏
 

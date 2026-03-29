@@ -1,5 +1,11 @@
 ---
 date: 2025-04-02
+tags:
+  - Flutter
+  - WebView
+  - H5
+  - 混合开发
+  - JS通信
 ---
 # Flutter | 第2期 - WebView：Flutter 与 H5 混合开发全攻略
 
@@ -173,7 +179,15 @@ class _FlutterH5JumpAssetsState extends State<FlutterH5JumpAssets> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('加载 Assets H5')),
+      appBar: AppBar(
+        title: const Text('加载 Assets H5'),
+        actions: <Widget>[
+          FilledButton(
+            onPressed: _onLoadFlutterAssets,
+            child: const Text('加载H5'),
+          ),
+        ],
+      ),
       body: WebViewWidget(controller: controller),
     );
   }

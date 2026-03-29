@@ -1,5 +1,11 @@
 ---
 date: 2025-04-08
+tags:
+  - Flutter
+  - AI Agent
+  - Skills
+  - GitHub Copilot
+  - Claude Code
 ---
 # Flutter | 第8期 - Flutter 官方 Skills：AI Agent 专属开发技能库
 

@@ -1,5 +1,11 @@
 ---
 date: 2025-04-01
+tags:
+  - Flutter
+  - OKToast
+  - Toast
+  - 消息提示
+  - 工具封装
 ---
 # Flutter | 第1期 - OKToast：优雅的 Toast 提示方案
 

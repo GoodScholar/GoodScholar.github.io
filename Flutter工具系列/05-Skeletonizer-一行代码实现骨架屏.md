@@ -1,5 +1,10 @@
 ---
 date: 2025-04-05
+tags:
+  - Flutter
+  - 骨架屏
+  - Skeleton Loading
+  - 加载动画
 ---
 # Flutter | 第5期 - Skeletonizer：一行代码实现骨架屏
 
