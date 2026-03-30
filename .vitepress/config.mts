@@ -36,6 +36,8 @@ export default defineConfig({
         text: 'AI 学习',
         items: [
           { text: '前端转AI学习手册', link: '/前端转AI学习手册/01_Python基础语法' },
+          { text: 'Skills使用指南', link: '/Skills文章/01-Skills入门-AI编程助手的技能加点指南' },
+          { text: 'Vibe Coding深度解读', link: '/Vibe-Coding系列/01-Vibe-Coding不是让AI写代码这么简单' },
           { text: 'GStack实战指南系列', link: '/GStack实战指南系列/01-初识GStack-把ClaudeCode变成虚拟开发团队' },
           { text: 'Superpowers实战指南系列', link: '/Superpowers实战指南系列/01-初识Superpowers-给你的AI编程助手注入工程纪律' }
         ]
@@ -102,6 +104,34 @@ export default defineConfig({
             { text: '04-系统化调试', link: '/Superpowers实战指南系列/04-系统化调试-四阶段根因追踪告别碰运气式修Bug' },
             { text: '05-子代理驱动开发', link: '/Superpowers实战指南系列/05-子代理驱动开发-AI管理AI写代码的全新范式' },
             { text: '06-完整实战', link: '/Superpowers实战指南系列/06-完整实战-用Superpowers从零构建一个Markdown笔记应用' }
+          ]
+        }
+      ],
+      '/Skills文章/': [
+        {
+          text: 'Skills 使用指南',
+          items: [
+            { text: '01-Skills入门', link: '/Skills文章/01-Skills入门-AI编程助手的技能加点指南' },
+            { text: '02-从提示词到Skills', link: '/Skills文章/02-从提示词到Skills-AI编程的进化之路' },
+            { text: '03-AI编程工具三国杀', link: '/Skills文章/03-AI编程工具三国杀-Cursor-vs-ClaudeCode-vs-Gemini' },
+            { text: '04-GStack vs Superpowers', link: '/Skills文章/04-GStack-vs-Superpowers-两大AI编程技能包深度对比' },
+            { text: '05-GStack细节分析', link: '/Skills文章/05-GStack细节分析与实战使用指南' },
+            { text: '06-Superpowers细节分析', link: '/Skills文章/06-Superpowers细节分析与实战使用指南' },
+            { text: '07-10分钟打造你的第一个Skill', link: '/Skills文章/07-10分钟打造你的第一个AI-Skill' }
+          ]
+        }
+      ],
+      '/Vibe-Coding系列/': [
+        {
+          text: 'Vibe Coding 深度解读',
+          items: [
+            { text: '01-Vibe Coding概念解析', link: '/Vibe-Coding系列/01-Vibe-Coding不是让AI写代码这么简单' },
+            { text: '02-实战：AI推理游戏', link: '/Vibe-Coding系列/02-我用Vibe-Coding从零做了一个AI推理游戏' },
+            { text: '03-工具怎么选', link: '/Vibe-Coding系列/03-Vibe-Coding工具怎么选-Cursor-vs-ClaudeCode-vs-Bolt' },
+            { text: '04-质量红线', link: '/Vibe-Coding系列/04-不看代码行不行-Vibe-Coding的质量红线' },
+            { text: '05-程序员的新技能树', link: '/Vibe-Coding系列/05-Vibe-Coding时代程序员的新技能树' },
+            { text: '06-提示词模式大全', link: '/Vibe-Coding系列/06-Vibe-Coding提示词模式大全' },
+            { text: '07-从Skills到Vibe Coding', link: '/Vibe-Coding系列/07-从Skills到Vibe-Coding-AI编程的进化路径' }
           ]
         }
       ]

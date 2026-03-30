@@ -1,6 +1,11 @@
 ---
 date: 2026-01-14
-draft: true
+tags:
+  - Vibe Coding
+  - AI编程
+  - Skills
+  - Superpowers
+cover: /covers/cover-vibe-07-bridge.webp
 ---
 
 # 从 Skills 到 Vibe Coding — AI 编程的进化路径
@@ -264,17 +269,17 @@ Skills 和 Vibe Coding 不是两个独立的趋势。它们是同一枚硬币的
 ## 📚 相关阅读
 
 ### Skills 系列
-- [Skills 入门 — AI 编程助手的「技能加点」指南](./01-Skills入门-AI编程助手的技能加点指南.md)
-- [从提示词到 Skills — AI 编程的进化之路](./从提示词到Skills-AI编程的进化之路.md)
-- [10 分钟打造你的第一个 AI Skill](./10分钟打造你的第一个AI-Skill.md)
-- [AI 编程工具三国杀](./AI编程工具三国杀-Cursor-vs-ClaudeCode-vs-Gemini.md)
+- [Skills 入门 — AI 编程助手的「技能加点」指南](../Skills文章/01-Skills入门-AI编程助手的技能加点指南.md)
+- [从提示词到 Skills — AI 编程的进化之路](../Skills文章/02-从提示词到Skills-AI编程的进化之路.md)
+- [10 分钟打造你的第一个 AI Skill](../Skills文章/07-10分钟打造你的第一个AI-Skill.md)
+- [AI 编程工具三国杀](../Skills文章/03-AI编程工具三国杀-Cursor-vs-ClaudeCode-vs-Gemini.md)
 
 ### Vibe Coding 系列
-- [Vibe Coding 不是「让 AI 写代码」这么简单](./Vibe-Coding不是让AI写代码这么简单.md)
-- [我用 Vibe Coding 从零做了一个 AI 推理游戏](./我用Vibe-Coding从零做了一个AI推理游戏.md)
-- [Vibe Coding 工具怎么选](./Vibe-Coding工具怎么选-Cursor-vs-ClaudeCode-vs-Bolt.md)
-- [不看代码行不行？Vibe Coding 的质量红线](./不看代码行不行-Vibe-Coding的质量红线.md)
-- [Vibe Coding 时代，程序员的新技能树](./Vibe-Coding时代程序员的新技能树.md)
+- [Vibe Coding 不是「让 AI 写代码」这么简单](./01-Vibe-Coding不是让AI写代码这么简单.md)
+- [我用 Vibe Coding 从零做了一个 AI 推理游戏](./02-我用Vibe-Coding从零做了一个AI推理游戏.md)
+- [Vibe Coding 工具怎么选](./03-Vibe-Coding工具怎么选-Cursor-vs-ClaudeCode-vs-Bolt.md)
+- [不看代码行不行？Vibe Coding 的质量红线](./04-不看代码行不行-Vibe-Coding的质量红线.md)
+- [Vibe Coding 时代，程序员的新技能树](./05-Vibe-Coding时代程序员的新技能树.md)
 
 ---
 

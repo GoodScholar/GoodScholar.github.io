@@ -1,6 +1,11 @@
 ---
 date: 2026-01-13
-draft: true
+tags:
+  - Vibe Coding
+  - AI编程
+  - 提示词
+  - 实战教程
+cover: /covers/cover-vibe-06-prompts.webp
 ---
 
 # Vibe Coding 提示词模式大全

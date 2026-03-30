@@ -1,6 +1,12 @@
 ---
-date: 2026-01-08
-draft: true
+date: 2026-01-19
+tags:
+  - Vibe Coding
+  - AI编程
+  - Cursor
+  - Claude Code
+  - Bolt
+cover: /covers/cover-vibe-03-tools.webp
 ---
 
 # Vibe Coding 工具怎么选 — Cursor vs Claude Code vs Bolt
@@ -282,4 +288,4 @@ UI 原型           → Bolt / v0（最快的可视化反馈）
 
 ---
 
-*📝 作者：NIHoa ｜ 系列：Vibe Coding 深度解读 ｜ 更新日期：2026-01-08*
+*📝 作者：NIHoa ｜ 系列：Vibe Coding 深度解读 ｜ 更新日期：2026-01-19*

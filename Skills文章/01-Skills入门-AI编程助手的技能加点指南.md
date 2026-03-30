@@ -1,5 +1,10 @@
 ---
 date: 2026-03-25
+tags:
+  - AI编程
+  - Skills
+  - 入门指南
+cover: /covers/cover-skills-01-intro.webp
 ---
 # Skills 入门 — AI 编程助手的「技能加点」指南
 
@@ -275,4 +280,4 @@ Skills 生态正在爆发式增长。以下是目前最值得关注的资源：
 
 ---
 
-*📝 作者：NIHoa ｜ 系列：Skills 使用文档系列 ｜ 更新日期：2026-03-25*
+*📝 作者：NIHoa ｜ 系列：Skills 使用指南 ｜ 更新日期：2026-03-25*

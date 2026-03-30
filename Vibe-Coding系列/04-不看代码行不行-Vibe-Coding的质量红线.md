@@ -1,6 +1,11 @@
 ---
-date: 2026-01-09
-draft: true
+date: 2026-01-20
+tags:
+  - Vibe Coding
+  - AI编程
+  - 代码质量
+  - 安全
+cover: /covers/cover-vibe-04-quality.webp
 ---
 
 # 不看代码行不行？Vibe Coding 的质量红线
@@ -274,4 +279,4 @@ AI 做广度覆盖，人做深度把关。
 
 ---
 
-*📝 作者：NIHoa ｜ 系列：Vibe Coding 深度解读 ｜ 更新日期：2026-01-09*
+*📝 作者：NIHoa ｜ 系列：Vibe Coding 深度解读 ｜ 更新日期：2026-01-20*

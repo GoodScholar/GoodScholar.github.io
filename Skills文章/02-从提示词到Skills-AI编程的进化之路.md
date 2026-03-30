@@ -1,5 +1,10 @@
 ---
-date: 2026-03-25
+date: 2026-03-26
+tags:
+  - AI编程
+  - Skills
+  - 提示词
+cover: /covers/cover-skills-02-evolution.webp
 ---
 # 从提示词到 Skills — AI 编程的进化之路
 
@@ -215,4 +220,4 @@ AI 编程工具每年都在迭代，但 Skills 作为「人类经验的结构化
 
 ---
 
-*📝 作者：NIHoa ｜ 更新日期：2026-03-25*
+*📝 作者：NIHoa ｜ 系列：Skills 使用指南 ｜ 更新日期：2026-03-26*

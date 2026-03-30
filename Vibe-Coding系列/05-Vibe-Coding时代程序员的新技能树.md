@@ -1,6 +1,11 @@
 ---
 date: 2026-01-12
-draft: true
+tags:
+  - Vibe Coding
+  - AI编程
+  - 职业发展
+  - 程序员
+cover: /covers/cover-vibe-05-skilltree.webp
 ---
 
 # Vibe Coding 时代，程序员的新技能树

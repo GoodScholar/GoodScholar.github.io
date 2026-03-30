@@ -1,6 +1,10 @@
 ---
 date: 2026-01-11
-draft: true
+tags:
+  - Vibe Coding
+  - AI编程
+  - 编程范式
+cover: /covers/cover-vibe-01-concept.webp
 ---
 
 # Vibe Coding 不是「让 AI 写代码」这么简单

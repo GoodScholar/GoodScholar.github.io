@@ -1,5 +1,11 @@
 ---
-date: 2026-01-06
+date: 2026-01-15
+tags:
+  - AI编程
+  - Skills
+  - GStack
+  - Claude Code
+cover: /covers/cover-skills-gstack-guide.webp
 ---
 # GStack 细节分析与实战使用指南
 
@@ -94,4 +100,4 @@ Gary Tan 给出的标准答案是：**链式调用闭环**。
 
 ---
 
-*📝 作者：NIHoa ｜ 系列：Skills 使用文档系列 ｜ 更新日期：2026-01-06*
+*📝 作者：NIHoa ｜ 系列：Skills 使用指南 ｜ 更新日期：2026-01-15*

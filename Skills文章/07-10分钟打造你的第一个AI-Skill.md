@@ -1,5 +1,10 @@
 ---
-date: 2026-03-25
+date: 2026-03-28
+tags:
+  - AI编程
+  - Skills
+  - 实战教程
+cover: /covers/cover-skills-04-diy.webp
 ---
 # 10 分钟打造你的第一个 AI Skill
 
@@ -356,4 +361,4 @@ description: 当用户要求生成 README、编写项目文档时使用
 
 ---
 
-*📝 作者：NIHoa ｜ 更新日期：2026-03-25*
+*📝 作者：NIHoa ｜ 系列：Skills 使用指南 ｜ 更新日期：2026-03-28*
