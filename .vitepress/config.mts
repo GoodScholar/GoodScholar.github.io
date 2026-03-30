@@ -51,7 +51,14 @@ export default defineConfig({
           items: [
             { text: '01-跨端应用框架对比', link: '/跨端技术系列/01-跨端应用框架对比-Flutter-RN-UniApp-Taro' },
             { text: '02-Flutter+Taro双栈打造全平台产品', link: '/跨端技术系列/02-从零到一-Flutter+Taro双栈打造全平台产品' },
-            { text: '03-Flutter入门指南', link: '/跨端技术系列/03-Flutter入门指南-从前端工程师到App开发者' }
+            { text: '03-Flutter入门指南', link: '/跨端技术系列/03-Flutter入门指南-从前端工程师到App开发者' },
+            { text: '04-Riverpod 3.x 状态管理', link: '/跨端技术系列/04-Flutter状态管理终极指南-Riverpod3.x从入门到精通' },
+            { text: '05-Taro 4.x 多端小程序开发', link: '/跨端技术系列/05-Taro4.x多端小程序开发实战' },
+            { text: '06-Flutter动画从零到炫酷', link: '/跨端技术系列/06-Flutter动画从零到炫酷-让你的App动起来' },
+            { text: '07-Flutter+Dart后端全栈', link: '/跨端技术系列/07-Flutter+Dart后端全栈实战-DartFrog打通前后端' },
+            { text: '08-移动端性能优化实战', link: '/跨端技术系列/08-移动端性能优化实战-Flutter从卡顿到丝滑' },
+            { text: '09-鸿蒙适配实战', link: '/跨端技术系列/09-2026鸿蒙适配实战-Flutter-Taro双端上架全流程' },
+            { text: '10-跨端项目工程化', link: '/跨端技术系列/10-跨端项目工程化-Monorepo+CICD+自动化测试' }
           ]
         }
       ],

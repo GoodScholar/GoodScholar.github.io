@@ -1,5 +1,12 @@
 ---
 date: 2026-01-09
+tags:
+  - Flutter
+  - Taro
+  - 鸿蒙
+  - HarmonyOS
+cover: /covers/cover-cross-09.webp
+description: "Flutter 和 Taro 双端鸿蒙适配实战，梳理 HarmonyOS 开发基础、flutter_harmony 引擎接入、Taro 鸿蒙插件配置及上架全流程。"
 ---
 # 🐉 2026 鸿蒙适配实战：Flutter / Taro 双端鸿蒙上架全流程
 
@@ -313,6 +320,28 @@ hvigorw assembleHap -p product=default -p buildMode=release
 > 但每个平台有自己的"口音"（API 差异、UI 规范、审核要求）。
 > **不要抗拒它，拥抱它 — 多覆盖一个平台，就多触达几千万用户。**
 
+
+---
+
+<details>
+<summary>📖 查看「跨端技术系列」完整目录（共 10 篇）</summary>
+
+1. [跨端应用框架对比：Flutter / RN / UniApp / Taro](/跨端技术系列/01-跨端应用框架对比-Flutter-RN-UniApp-Taro)
+2. [从零到一：Flutter+Taro 双栈打造全平台产品](/跨端技术系列/02-从零到一-Flutter+Taro双栈打造全平台产品)
+3. [Flutter 入门指南：从前端工程师到 App 开发者](/跨端技术系列/03-Flutter入门指南-从前端工程师到App开发者)
+4. [Flutter 状态管理终极指南：Riverpod 3.x](/跨端技术系列/04-Flutter状态管理终极指南-Riverpod3.x从入门到精通)
+5. [Taro 4.x 多端小程序开发实战](/跨端技术系列/05-Taro4.x多端小程序开发实战)
+6. [Flutter 动画从零到炫酷](/跨端技术系列/06-Flutter动画从零到炫酷-让你的App动起来)
+7. [Flutter+Dart 后端全栈实战：Dart Frog](/跨端技术系列/07-Flutter+Dart后端全栈实战-DartFrog打通前后端)
+8. [移动端性能优化实战：Flutter 从卡顿到丝滑](/跨端技术系列/08-移动端性能优化实战-Flutter从卡顿到丝滑)
+9. [2026 鸿蒙适配实战：Flutter/Taro 双端上架](/跨端技术系列/09-2026鸿蒙适配实战-Flutter-Taro双端上架全流程)
+10. [跨端项目工程化：Monorepo + CI/CD + 自动化测试](/跨端技术系列/10-跨端项目工程化-Monorepo+CICD+自动化测试)
+
+</details>
+
+> 📚 **跨端技术系列导航**
+> - ⬅️ 上一篇：[08-移动端性能优化实战-Flutter从卡顿到丝滑](/跨端技术系列/08-移动端性能优化实战-Flutter从卡顿到丝滑)
+> - ➡️ 下一篇：[10-跨端项目工程化-Monorepo+CICD+自动化测试](/跨端技术系列/10-跨端项目工程化-Monorepo+CICD+自动化测试)
 
 ---
 *📝 作者：NIHoa ｜ 系列：跨端技术系列 ｜ 更新日期：2026-01-09*

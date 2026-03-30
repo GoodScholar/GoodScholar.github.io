@@ -1,5 +1,12 @@
 ---
 date: 2026-01-05
+tags:
+  - Taro
+  - 小程序
+  - React
+  - TypeScript
+cover: /covers/cover-cross-05.webp
+description: "Taro 4.x 实战指南，一套 React + TypeScript 代码编译到微信/支付宝/抖音小程序和 H5，含 Zustand 状态管理、NutUI 组件和多端发布流程。"
 ---
 # 🔷 Taro 4.x 多端小程序开发实战：一套代码征服微信/支付宝/抖音
 
@@ -643,6 +650,28 @@ ci.upload({
 > Taro 的价值不是消除这些限制，而是让你**用熟悉的 React/Vue 写法优雅地适应它们**。
 > **会写 React，就会写小程序 — 这就是 Taro 的承诺。**
 
+
+---
+
+<details>
+<summary>📖 查看「跨端技术系列」完整目录（共 10 篇）</summary>
+
+1. [跨端应用框架对比：Flutter / RN / UniApp / Taro](/跨端技术系列/01-跨端应用框架对比-Flutter-RN-UniApp-Taro)
+2. [从零到一：Flutter+Taro 双栈打造全平台产品](/跨端技术系列/02-从零到一-Flutter+Taro双栈打造全平台产品)
+3. [Flutter 入门指南：从前端工程师到 App 开发者](/跨端技术系列/03-Flutter入门指南-从前端工程师到App开发者)
+4. [Flutter 状态管理终极指南：Riverpod 3.x](/跨端技术系列/04-Flutter状态管理终极指南-Riverpod3.x从入门到精通)
+5. [Taro 4.x 多端小程序开发实战](/跨端技术系列/05-Taro4.x多端小程序开发实战)
+6. [Flutter 动画从零到炫酷](/跨端技术系列/06-Flutter动画从零到炫酷-让你的App动起来)
+7. [Flutter+Dart 后端全栈实战：Dart Frog](/跨端技术系列/07-Flutter+Dart后端全栈实战-DartFrog打通前后端)
+8. [移动端性能优化实战：Flutter 从卡顿到丝滑](/跨端技术系列/08-移动端性能优化实战-Flutter从卡顿到丝滑)
+9. [2026 鸿蒙适配实战：Flutter/Taro 双端上架](/跨端技术系列/09-2026鸿蒙适配实战-Flutter-Taro双端上架全流程)
+10. [跨端项目工程化：Monorepo + CI/CD + 自动化测试](/跨端技术系列/10-跨端项目工程化-Monorepo+CICD+自动化测试)
+
+</details>
+
+> 📚 **跨端技术系列导航**
+> - ⬅️ 上一篇：[04-Flutter状态管理终极指南-Riverpod3.x从入门到精通](/跨端技术系列/04-Flutter状态管理终极指南-Riverpod3.x从入门到精通)
+> - ➡️ 下一篇：[06-Flutter动画从零到炫酷-让你的App动起来](/跨端技术系列/06-Flutter动画从零到炫酷-让你的App动起来)
 
 ---
 *📝 作者：NIHoa ｜ 系列：跨端技术系列 ｜ 更新日期：2026-01-05*

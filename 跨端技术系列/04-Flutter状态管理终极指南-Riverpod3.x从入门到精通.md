@@ -1,5 +1,11 @@
 ---
 date: 2026-01-04
+tags:
+  - Flutter
+  - Riverpod
+  - 状态管理
+cover: /covers/cover-cross-04.webp
+description: "Riverpod 3.x 从入门到精通，深度解析 Mutation 副作用追踪、Ref.mounted 安全检查、自动重试等新特性，含测试与最佳实践。"
 ---
 # 🧠 Flutter 状态管理终极指南：Riverpod 3.x 从入门到精通
 
@@ -579,6 +585,28 @@ lib/
 > Riverpod 是"拉"模型 — Widget 主动声明"我需要什么"，框架负责送达和更新。
 > **从"推"到"拉"的思维转变，就是从初级到高级 Flutter 开发者的跨越。**
 
+
+---
+
+<details>
+<summary>📖 查看「跨端技术系列」完整目录（共 10 篇）</summary>
+
+1. [跨端应用框架对比：Flutter / RN / UniApp / Taro](/跨端技术系列/01-跨端应用框架对比-Flutter-RN-UniApp-Taro)
+2. [从零到一：Flutter+Taro 双栈打造全平台产品](/跨端技术系列/02-从零到一-Flutter+Taro双栈打造全平台产品)
+3. [Flutter 入门指南：从前端工程师到 App 开发者](/跨端技术系列/03-Flutter入门指南-从前端工程师到App开发者)
+4. [Flutter 状态管理终极指南：Riverpod 3.x](/跨端技术系列/04-Flutter状态管理终极指南-Riverpod3.x从入门到精通)
+5. [Taro 4.x 多端小程序开发实战](/跨端技术系列/05-Taro4.x多端小程序开发实战)
+6. [Flutter 动画从零到炫酷](/跨端技术系列/06-Flutter动画从零到炫酷-让你的App动起来)
+7. [Flutter+Dart 后端全栈实战：Dart Frog](/跨端技术系列/07-Flutter+Dart后端全栈实战-DartFrog打通前后端)
+8. [移动端性能优化实战：Flutter 从卡顿到丝滑](/跨端技术系列/08-移动端性能优化实战-Flutter从卡顿到丝滑)
+9. [2026 鸿蒙适配实战：Flutter/Taro 双端上架](/跨端技术系列/09-2026鸿蒙适配实战-Flutter-Taro双端上架全流程)
+10. [跨端项目工程化：Monorepo + CI/CD + 自动化测试](/跨端技术系列/10-跨端项目工程化-Monorepo+CICD+自动化测试)
+
+</details>
+
+> 📚 **跨端技术系列导航**
+> - ⬅️ 上一篇：[03-Flutter入门指南-从前端工程师到App开发者](/跨端技术系列/03-Flutter入门指南-从前端工程师到App开发者)
+> - ➡️ 下一篇：[05-Taro4.x多端小程序开发实战](/跨端技术系列/05-Taro4.x多端小程序开发实战)
 
 ---
 *📝 作者：NIHoa ｜ 系列：跨端技术系列 ｜ 更新日期：2026-01-04*

@@ -1,5 +1,12 @@
 ---
 date: 2026-01-07
+tags:
+  - Flutter
+  - Dart
+  - Dart Frog
+  - 全栈
+cover: /covers/cover-cross-07.webp
+description: "用 Dart Frog 实现 Flutter 全栈开发，前后端共享 Dart 数据模型与类型系统，含文件路由、中间件、数据库集成和部署方案。"
 ---
 # 🔥 Flutter + Dart 后端全栈实战：用 Dart Frog 打通前后端
 
@@ -406,6 +413,28 @@ docker run -p 8080:8080 my-api-server
 > Dart 全栈就是这种极简主义的实践 — 一门语言、一套类型、一个团队，
 > 从用户点击按钮到数据库返回结果，**全链路类型安全**。
 
+
+---
+
+<details>
+<summary>📖 查看「跨端技术系列」完整目录（共 10 篇）</summary>
+
+1. [跨端应用框架对比：Flutter / RN / UniApp / Taro](/跨端技术系列/01-跨端应用框架对比-Flutter-RN-UniApp-Taro)
+2. [从零到一：Flutter+Taro 双栈打造全平台产品](/跨端技术系列/02-从零到一-Flutter+Taro双栈打造全平台产品)
+3. [Flutter 入门指南：从前端工程师到 App 开发者](/跨端技术系列/03-Flutter入门指南-从前端工程师到App开发者)
+4. [Flutter 状态管理终极指南：Riverpod 3.x](/跨端技术系列/04-Flutter状态管理终极指南-Riverpod3.x从入门到精通)
+5. [Taro 4.x 多端小程序开发实战](/跨端技术系列/05-Taro4.x多端小程序开发实战)
+6. [Flutter 动画从零到炫酷](/跨端技术系列/06-Flutter动画从零到炫酷-让你的App动起来)
+7. [Flutter+Dart 后端全栈实战：Dart Frog](/跨端技术系列/07-Flutter+Dart后端全栈实战-DartFrog打通前后端)
+8. [移动端性能优化实战：Flutter 从卡顿到丝滑](/跨端技术系列/08-移动端性能优化实战-Flutter从卡顿到丝滑)
+9. [2026 鸿蒙适配实战：Flutter/Taro 双端上架](/跨端技术系列/09-2026鸿蒙适配实战-Flutter-Taro双端上架全流程)
+10. [跨端项目工程化：Monorepo + CI/CD + 自动化测试](/跨端技术系列/10-跨端项目工程化-Monorepo+CICD+自动化测试)
+
+</details>
+
+> 📚 **跨端技术系列导航**
+> - ⬅️ 上一篇：[06-Flutter动画从零到炫酷-让你的App动起来](/跨端技术系列/06-Flutter动画从零到炫酷-让你的App动起来)
+> - ➡️ 下一篇：[08-移动端性能优化实战-Flutter从卡顿到丝滑](/跨端技术系列/08-移动端性能优化实战-Flutter从卡顿到丝滑)
 
 ---
 *📝 作者：NIHoa ｜ 系列：跨端技术系列 ｜ 更新日期：2026-01-07*

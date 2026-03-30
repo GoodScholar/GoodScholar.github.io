@@ -1,5 +1,11 @@
 ---
 date: 2026-01-06
+tags:
+  - Flutter
+  - 动画
+  - Lottie
+cover: /covers/cover-cross-06.webp
+description: "Flutter 动画完全指南，从隐式动画、显式动画、Hero 转场到交错动画和 Lottie 集成，每个知识点附可运行完整代码。"
 ---
 # ✨ Flutter 动画从零到炫酷：让你的 App 动起来
 
@@ -540,6 +546,28 @@ class _ShimmerEffectState extends State<ShimmerEffect>
 > 一个页面切换没有过渡，用户会感觉"卡了一下"。
 > **好的动画让用户感觉不到动画的存在 — 一切都自然流畅。**
 
+
+---
+
+<details>
+<summary>📖 查看「跨端技术系列」完整目录（共 10 篇）</summary>
+
+1. [跨端应用框架对比：Flutter / RN / UniApp / Taro](/跨端技术系列/01-跨端应用框架对比-Flutter-RN-UniApp-Taro)
+2. [从零到一：Flutter+Taro 双栈打造全平台产品](/跨端技术系列/02-从零到一-Flutter+Taro双栈打造全平台产品)
+3. [Flutter 入门指南：从前端工程师到 App 开发者](/跨端技术系列/03-Flutter入门指南-从前端工程师到App开发者)
+4. [Flutter 状态管理终极指南：Riverpod 3.x](/跨端技术系列/04-Flutter状态管理终极指南-Riverpod3.x从入门到精通)
+5. [Taro 4.x 多端小程序开发实战](/跨端技术系列/05-Taro4.x多端小程序开发实战)
+6. [Flutter 动画从零到炫酷](/跨端技术系列/06-Flutter动画从零到炫酷-让你的App动起来)
+7. [Flutter+Dart 后端全栈实战：Dart Frog](/跨端技术系列/07-Flutter+Dart后端全栈实战-DartFrog打通前后端)
+8. [移动端性能优化实战：Flutter 从卡顿到丝滑](/跨端技术系列/08-移动端性能优化实战-Flutter从卡顿到丝滑)
+9. [2026 鸿蒙适配实战：Flutter/Taro 双端上架](/跨端技术系列/09-2026鸿蒙适配实战-Flutter-Taro双端上架全流程)
+10. [跨端项目工程化：Monorepo + CI/CD + 自动化测试](/跨端技术系列/10-跨端项目工程化-Monorepo+CICD+自动化测试)
+
+</details>
+
+> 📚 **跨端技术系列导航**
+> - ⬅️ 上一篇：[05-Taro4.x多端小程序开发实战](/跨端技术系列/05-Taro4.x多端小程序开发实战)
+> - ➡️ 下一篇：[07-Flutter+Dart后端全栈实战-DartFrog打通前后端](/跨端技术系列/07-Flutter+Dart后端全栈实战-DartFrog打通前后端)
 
 ---
 *📝 作者：NIHoa ｜ 系列：跨端技术系列 ｜ 更新日期：2026-01-06*
