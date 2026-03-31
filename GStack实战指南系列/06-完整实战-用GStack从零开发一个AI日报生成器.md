@@ -1,5 +1,10 @@
 ---
 date: 2025-04-18
+tags:
+  - AI编程
+  - GStack
+  - Claude Code
+cover: /covers/cover-gstack-06-fullstack.webp
 ---
 # GStack 实战指南 | 第6期 - 完整实战：用 GStack 从零开发一个 AI 日报生成器
 

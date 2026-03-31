@@ -1,5 +1,10 @@
 ---
 date: 2025-04-14
+tags:
+  - AI编程
+  - GStack
+  - Claude Code
+cover: /covers/cover-gstack-02-blueprint.webp
 ---
 # GStack 实战指南 | 第2期 - 产品与架构：用 CEO 与技术总监视角锁定项目边界
 

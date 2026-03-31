@@ -1,5 +1,10 @@
 ---
 date: 2025-02-09
+tags:
+  - Node.js
+  - 后端架构
+  - 技术选型
+cover: /covers/cover-nodejs-09-devops.webp
 ---
 # 🚀 Node.js 技术选型（九）：DevOps 与部署 — Docker · CI/CD · PM2 · K8s 入门
 

@@ -1,5 +1,10 @@
 ---
 date: 2025-04-15
+tags:
+  - AI编程
+  - GStack
+  - Claude Code
+cover: /covers/cover-gstack-03-review.webp
 ---
 # GStack 实战指南 | 第3期 - 对抗性审查：深入探索 `/review` 代码深度审计防线
 

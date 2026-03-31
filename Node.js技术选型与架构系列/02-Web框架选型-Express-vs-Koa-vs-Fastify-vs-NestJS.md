@@ -1,5 +1,10 @@
 ---
 date: 2025-02-02
+tags:
+  - Node.js
+  - 后端架构
+  - 技术选型
+cover: /covers/cover-nodejs-02-framework.webp
 ---
 # 🏗 Node.js 技术选型（二）：Web 框架选型 — Express vs Koa vs Fastify vs NestJS
 

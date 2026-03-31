@@ -1,5 +1,10 @@
 ---
 date: 2025-02-01
+tags:
+  - Node.js
+  - 后端架构
+  - 技术选型
+cover: /covers/cover-nodejs-01-runtime.webp
 ---
 # ⚙️ Node.js 技术选型（一）：运行时全解 — V8 · 事件循环 · libuv
 

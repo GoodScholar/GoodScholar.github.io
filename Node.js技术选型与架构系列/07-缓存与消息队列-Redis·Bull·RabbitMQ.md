@@ -1,5 +1,10 @@
 ---
 date: 2025-02-07
+tags:
+  - Node.js
+  - 后端架构
+  - 技术选型
+cover: /covers/cover-nodejs-07-cache.webp
 ---
 # ⚡ Node.js 技术选型（七）：缓存与消息队列 — Redis · Bull · RabbitMQ
 

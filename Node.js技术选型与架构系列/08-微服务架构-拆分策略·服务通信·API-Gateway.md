@@ -1,5 +1,10 @@
 ---
 date: 2025-02-08
+tags:
+  - Node.js
+  - 后端架构
+  - 技术选型
+cover: /covers/cover-nodejs-08-microservice.webp
 ---
 # 🏛 Node.js 技术选型（八）：微服务架构 — 拆分策略 · 服务通信 · API Gateway
 

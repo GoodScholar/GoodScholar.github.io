@@ -1,5 +1,10 @@
 ---
 date: 2025-02-10
+tags:
+  - Node.js
+  - 后端架构
+  - 技术选型
+cover: /covers/cover-nodejs-10-perf.webp
 ---
 # 📊 Node.js 技术选型（十）：性能优化与监控 — 压测 · APM · 日志 · 链路追踪
 

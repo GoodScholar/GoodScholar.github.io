@@ -1,5 +1,10 @@
 ---
 date: 2025-02-05
+tags:
+  - Node.js
+  - 后端架构
+  - 技术选型
+cover: /covers/cover-nodejs-05-api.webp
 ---
 # 🔌 Node.js 技术选型（五）：API 设计范式 — RESTful vs GraphQL vs tRPC
 

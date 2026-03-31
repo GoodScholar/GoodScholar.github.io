@@ -1,5 +1,10 @@
 ---
 date: 2025-02-04
+tags:
+  - Node.js
+  - 后端架构
+  - 技术选型
+cover: /covers/cover-nodejs-04-database.webp
 ---
 # 🗄 Node.js 技术选型（四）：数据库选型与 ORM — MySQL · PostgreSQL · MongoDB · Prisma
 

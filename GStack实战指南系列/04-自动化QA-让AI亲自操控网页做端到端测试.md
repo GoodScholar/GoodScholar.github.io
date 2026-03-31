@@ -1,5 +1,10 @@
 ---
 date: 2025-04-16
+tags:
+  - AI编程
+  - GStack
+  - Claude Code
+cover: /covers/cover-gstack-04-qa.webp
 ---
 # GStack 实战指南 | 第4期 - 自动化 QA：让 AI 亲自操控网页做端到端测试
 

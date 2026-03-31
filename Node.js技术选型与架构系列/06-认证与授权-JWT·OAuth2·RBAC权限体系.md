@@ -1,5 +1,10 @@
 ---
 date: 2025-02-06
+tags:
+  - Node.js
+  - 后端架构
+  - 技术选型
+cover: /covers/cover-nodejs-06-auth.webp
 ---
 # 🔐 Node.js 技术选型（六）：认证与授权 — JWT · OAuth2 · RBAC 权限体系
 

@@ -1,5 +1,10 @@
 ---
 date: 2025-02-03
+tags:
+  - Node.js
+  - 后端架构
+  - 技术选型
+cover: /covers/cover-nodejs-03-nestjs.webp
 ---
 # 🏢 Node.js 技术选型（三）：NestJS 企业级架构 — 模块 · 依赖注入 · 装饰器
 

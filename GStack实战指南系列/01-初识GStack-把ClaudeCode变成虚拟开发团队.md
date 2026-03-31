@@ -1,5 +1,10 @@
 ---
 date: 2025-04-13
+tags:
+  - AI编程
+  - GStack
+  - Claude Code
+cover: /covers/cover-gstack-01-team.webp
 ---
 # GStack 实战指南 | 第1期 - 初识 GStack：把 Claude Code 变成你的虚拟开发团队
 
