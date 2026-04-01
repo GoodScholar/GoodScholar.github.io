@@ -136,7 +136,7 @@ openspec init
 │    深化 OpenSpec 的设计   │     │ writing-plans 拆分原子任务  │
 │         ↓                │     │         ↓                   │
 │ ④ 子代理逐任务执行       │     │ TDD 先写测试后写代码        │
-│    每个子代理读取 specs/  │     │ systematic-debugging        │
+│    控制器传递 specs/ 上下文│     │ systematic-debugging        │
 │         ↓                │     │ verification 跑过才算完     │
 └─────────────────────────┘     └───────────┬─────────────────┘
                                             │
@@ -154,7 +154,7 @@ openspec init
 |:---:|:---:|:---|
 | 提案与规格 | **OpenSpec** | 定义变更范围、生成规格文档和任务清单 |
 | 设计深化 | **Superpowers** | 头脑风暴深入技术细节，生成更精细的实施计划 |
-| 编码执行 | **Superpowers** | 子代理驱动开发 + TDD，每个子代理可读取 `specs/` 获取上下文 |
+| 编码执行 | **Superpowers** | 子代理驱动开发 + TDD，控制器将 `specs/` 中的相关规格作为上下文传递给子代理 |
 | 质量验证 | **Superpowers** | 系统化调试 + 完成前验证 |
 | 知识归档 | **OpenSpec** | 将变更合入主规格，更新项目知识库 |
 
@@ -229,7 +229,7 @@ AI: 我已阅读提案。关于嵌套回复的实现，有两个技术方案：
 
 确认后 → Superpowers 自动进入 `writing-plans`，将 OpenSpec 的 7 个任务进一步拆分为更精细的原子任务。
 
-→ 进入 `subagent-driven-development`，每个子代理在执行前都会读取 `openspec/specs/` 中的现有规格，了解项目已有的数据模型和 API 设计，避免冲突。
+→ 进入 `subagent-driven-development`，控制器在分派每个子代理时，会将 `openspec/specs/` 中的相关规格作为上下文传递给子代理，让其了解项目已有的数据模型和 API 设计，避免冲突。
 
 → 每个子代理遵循 `TDD` 铁律：先写测试，测试失败，写代码，测试通过。
 
@@ -313,7 +313,7 @@ gemini extensions install https://github.com/obra/superpowers
 
 ▪️ **Superpowers 深化 OpenSpec**：OpenSpec 生成的 `tasks.md` 是粗粒度的，让 Superpowers 的 `writing-plans` 进一步细化
 
-▪️ **子代理读规格**：在 Superpowers 的子代理任务描述中，引用 `openspec/specs/` 中的相关规格文件，确保上下文充分
+▪️ **主动传递规格**：在 Superpowers 分派子代理时，需手动将 `openspec/specs/` 中的相关规格内容作为上下文传递给子代理，子代理不会自动读取规格目录
 
 ### ❌ 避免做法
 
