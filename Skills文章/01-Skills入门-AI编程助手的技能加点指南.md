@@ -274,9 +274,9 @@ Skills 生态正在爆发式增长。以下是目前最值得关注的资源：
 
 ## 📚 下篇预告
 
-> **第 2 篇：Superpowers 全解 — 让你的 AI 助手拥有「超能力工作流」**
+> **第 2 篇：从提示词到 Skills — AI 编程的进化之路**
 >
-> 我们将深入拆解 Superpowers 的 14 个模块，手把手演示 `brainstorming → writing-plans → executing-plans → verification` 的完整开发流程。你将亲眼看到，一个 Feature 从想法到上线，AI 是如何用结构化工作流帮你全程推进的。
+> 我们将回顾 AI 编程经历的三次范式跃迁——从提示词、到 Rules、再到 Skills——帮你理解 Skills 为什么突然火了、它和传统 Prompt 有什么本质区别、以及你应该立即安装的 5 个 Skills。
 
 ---
 

@@ -128,4 +128,4 @@ cover: /covers/cover-skills-synergy.webp
 别再写千字小作文给 AI 了喂，赶紧去搭你的兵工厂流水线。
 
 ---
-*📝 作者：NIHoa ｜ 系列：Skills文章 ｜ 更新日期：2026-03-17*
+*📝 作者：NIHoa ｜ 系列：Skills 使用指南 ｜ 更新日期：2026-03-17*

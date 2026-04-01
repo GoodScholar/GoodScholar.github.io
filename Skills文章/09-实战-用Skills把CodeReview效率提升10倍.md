@@ -148,4 +148,4 @@ cover: /covers/cover-skills-codereview.webp
 只需一次整理，你的审查工作量直接原地骤降 90%。还不快去试试？
 
 ---
-*📝 作者：NIHoa ｜ 系列：Skills文章 ｜ 更新日期：2026-03-18*
+*📝 作者：NIHoa ｜ 系列：Skills 使用指南 ｜ 更新日期：2026-03-18*
