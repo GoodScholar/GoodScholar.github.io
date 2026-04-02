@@ -39,7 +39,7 @@ export default defineConfig({
           { text: 'Skills使用指南', link: '/Skills文章/01-Skills入门-AI编程助手的技能加点指南' },
           { text: 'Vibe Coding深度解读', link: '/Vibe-Coding系列/01-Vibe-Coding不是让AI写代码这么简单' },
           { text: 'GStack实战指南系列', link: '/GStack实战指南系列/01-初识GStack-把ClaudeCode变成虚拟开发团队' },
-          { text: 'Superpowers实战指南系列', link: '/Superpowers实战指南系列/01-初识Superpowers-给你的AI编程助手注入工程纪律' }
+          { text: 'Skills实战合集', link: '/Skills实战合集/从零搭建CLI工具-brainstorming+TDD防翻车三件套' }
         ]
       },
       { text: 'Node.js 架构', link: '/Node.js技术选型与架构系列/01-Node.js运行时全解-V8·事件循环·libuv' },
@@ -94,16 +94,15 @@ export default defineConfig({
           ]
         }
       ],
-      '/Superpowers实战指南系列/': [
+      '/Skills实战合集/': [
         {
-          text: 'Superpowers实战指南',
+          text: 'Skills 实战合集',
           items: [
-            { text: '01-初识Superpowers', link: '/Superpowers实战指南系列/01-初识Superpowers-给你的AI编程助手注入工程纪律' },
-            { text: '02-头脑风暴', link: '/Superpowers实战指南系列/02-头脑风暴-在写代码前先把设计想明白' },
-            { text: '03-TDD铁律', link: '/Superpowers实战指南系列/03-TDD铁律-没有失败的测试就不许写代码' },
-            { text: '04-系统化调试', link: '/Superpowers实战指南系列/04-系统化调试-四阶段根因追踪告别碰运气式修Bug' },
-            { text: '05-子代理驱动开发', link: '/Superpowers实战指南系列/05-子代理驱动开发-AI管理AI写代码的全新范式' },
-            { text: '06-完整实战', link: '/Superpowers实战指南系列/06-完整实战-用Superpowers从零构建一个Markdown笔记应用' }
+            { text: '从零搭建CLI-防翻车三件套', link: '/Skills实战合集/从零搭建CLI工具-brainstorming+TDD防翻车三件套' },
+            { text: '生产Bug排查-四阶段追踪', link: '/Skills实战合集/生产Bug排查实录-systematic-debugging四阶段根因追踪' },
+            { text: 'AI管AI-并行代理提效', link: '/Skills实战合集/让AI管AI开发-subagent并行代理提效实战' },
+            { text: 'GStack+Superpowers组合拳', link: '/Skills实战合集/GStack+Superpowers组合拳-快速MVP后加固质量' },
+            { text: 'OpenSpec+Superpowers持续迭代', link: '/Skills实战合集/OpenSpec+Superpowers持续迭代-项目知识不丢失' }
           ]
         }
       ],

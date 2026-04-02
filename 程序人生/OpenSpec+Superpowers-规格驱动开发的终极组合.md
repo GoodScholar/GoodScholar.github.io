@@ -8,7 +8,7 @@ tags:
   - SDD
 cover: /covers/cover-07-openspec-superpowers.webp
 ---
-# Superpowers 实战指南 | 第7期 - OpenSpec + Superpowers：规格驱动开发的终极组合
+# OpenSpec + Superpowers：规格驱动开发的终极组合
 
 > 🧩 OpenSpec 管「想清楚」，Superpowers 管「做到位」。当这两套框架同时装进你的 AI 编程助手，你得到的不是 1 + 1 = 2，而是一条从需求到上线的全自动高速公路。
 
