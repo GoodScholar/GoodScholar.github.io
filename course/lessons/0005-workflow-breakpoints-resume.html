@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 5: 工作流断点 - 状态恢复与上下文注入</title>
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #2b2b2b;
+            --accent-color: #059669;
+            --secondary-bg: #ecfdf5;
+            --border-color: #d1fae5;
+            --font-main: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            font-family: var(--font-main); line-height: 1.7; color: var(--text-color);
+            background-color: var(--bg-color); max-width: 800px; margin: 0 auto;
+            padding: 40px 20px; font-size: 18px; -webkit-font-smoothing: antialiased;
+        }
+        h1 { font-size: 2.5rem; font-weight: 800; color: #064e3b; margin-bottom: 0.5rem; }
+        h2 { font-size: 1.75rem; font-weight: 700; margin-top: 2.5rem; color: #065f46; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
+        p { margin-bottom: 1.5rem; }
+        .mission-badge {
+            display: inline-block; background-color: var(--accent-color); color: white;
+            padding: 4px 12px; border-radius: 9999px; font-size: 0.85rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px;
+        }
+        pre {
+            background-color: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 8px;
+            overflow-x: auto; font-size: 0.9rem; line-height: 1.5; font-family: ui-monospace, SFMono-Regular, monospace;
+        }
+        .concept-box {
+            background-color: var(--secondary-bg); border-left: 4px solid var(--accent-color);
+            padding: 20px; border-radius: 0 8px 8px 0; margin: 2rem 0;
+        }
+        .code-highlight { color: #facc15; font-weight: bold; }
+        .quiz-container {
+            border: 2px solid var(--accent-color); border-radius: 12px; padding: 24px;
+            margin-top: 3rem; background-color: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: var(--accent-color); color: white; border: none; padding: 10px 20px;
+            border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s;
+        }
+        button:hover { opacity: 0.9; }
+        input[type="text"] {
+            padding: 10px; font-size: 1rem; border: 1px solid #a7f3d0; border-radius: 6px;
+            width: 100%; max-width: 400px; margin-right: 10px; font-family: inherit;
+        }
+        .feedback { margin-top: 1rem; font-weight: 600; display: none; }
+        .feedback.correct { color: #059669; }
+        .feedback.incorrect { color: #dc2626; }
+    </style>
+</head>
+<body>
+
+    <div class="mission-badge">Mission Checkpoint: 架构闭环</div>
+    
+    <h1>Lesson 5: 状态恢复与上下文注入 (Resume)</h1>
+    <p>想象一下，昨天挂起了一个“等待审核”的工作流。今天，用户终于登录系统并点击了“同意”。我们如何重新激活引擎，让流程继续往下走？这就涉及到了断点的最后一块拼图：<strong>恢复 (Resume) 与上下文注入</strong>。</p>
+
+    <h2>重新装载现场</h2>
+    <p>引擎的重新启动，不是从根节点开始的。我们首先要从数据库加载上一节课保存的“快照”：</p>
+    <ul>
+        <li><code>queue</code>：由于我们在上一课挂起时，引发挂起的节点<strong>还没有被 shift 出队列</strong>，因此它还在队列的最前方。</li>
+        <li><code>completedNodes</code>：包含了所有已经成功执行的节点数据，下游节点可以从中读取依赖数据。</li>
+    </ul>
+
+    <h2>上下文注入 (Context Injection)</h2>
+    <p>当用户点击“同意”时，产生了一个外部输入（也就是审核结果）。我们必须将这个外部输入“注入”给那个一直处于挂起状态的节点，然后人为地将其状态修改为 <code>SUCCESS</code>，接着重启 <code>while</code> 循环！</p>
+
+<pre><code>// 外部系统或UI界面调用的 Resume 函数
+async function resumeWorkflow(snapshotData, nodeId, userInput) {
+  // 1. 从快照恢复现场
+  let { queue, completedNodes } = snapshotData;
+  
+  // 2. 找到那个被挂起的节点，它应该在 queue 的头部
+  const suspendedNode = queue.find(n => n.id === nodeId);
+  
+  // 3. 上下文注入：将用户的操作结果作为节点的最终输出
+  suspendedNode.outputData = { action: userInput, timestamp: Date.now() };
+  
+  // 4. 将该节点标记为完成，并移除出队列
+  completedNodes.add(suspendedNode.id);
+  queue = queue.filter(n => n.id !== nodeId);
+  
+  // 5. 核心：将其所有的下游节点 (Outgoers) 推入执行队列！
+  const outgoers = getOutgoers(suspendedNode, nodes, edges);
+  queue.push(...outgoers);
+  
+  // 6. 重启执行引擎！
+  <span class="code-highlight">startExecutionLoop(queue, completedNodes);</span>
+}
+</code></pre>
+
+    <div class="concept-box">
+        <strong>架构之美：</strong>
+        <p>注意到没有？我们在 <code>resumeWorkflow</code> 中做的工作，其实就等价于普通节点在 <code>executeNodeTask</code> 成功后做的工作（赋值输出数据、移出队列、推进下游节点）。<br>
+        <strong>“挂起与恢复”本质上是将引擎内部瞬间完成的操作，拉长到了人类的时间尺度，由外部事件来补全状态。</strong></p>
+    </div>
+
+    <div class="quiz-container">
+        <div style="font-weight: 700; font-size: 1.25rem; margin-bottom: 1rem;">🛠 知识固化测验</div>
+        <p>在执行恢复 (Resume) 时，为了让后续节点能够顺着图继续执行，我们必须将挂起节点的什么推入执行队列？</p>
+        <div style="display: flex; margin-top: 15px;">
+            <input type="text" id="quiz-input" placeholder="输入你的答案 (例如: 下游节点)">
+            <button onclick="checkAnswer()">提交</button>
+        </div>
+        <div id="feedback" class="feedback"></div>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const input = document.getElementById('quiz-input').value.trim();
+            const feedback = document.getElementById('feedback');
+            feedback.style.display = 'block';
+            
+            if (input.includes('下游') || input.toLowerCase().includes('outgoer')) {
+                feedback.textContent = "回答正确！挂起节点既然已经“获得批准”完成了，我们就把它的下游节点放入引擎队列，唤醒沉睡的 while 循环继续狂奔。";
+                feedback.className = "feedback correct";
+            } else {
+                feedback.textContent = "仔细看代码注释的第 5 步，我们需要推入什么来驱动图形的继续流动？";
+                feedback.className = "feedback incorrect";
+            }
+        }
+    </script>
+</body>
+</html>

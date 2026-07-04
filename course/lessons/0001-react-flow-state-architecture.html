@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1: React Flow 与状态架构设计</title>
+    <style>
+        :root {
+            --bg-color: #fcfcfc;
+            --text-color: #333333;
+            --accent-color: #4F46E5;
+            --secondary-bg: #f3f4f6;
+            --border-color: #e5e7eb;
+            --font-main: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            font-family: var(--font-main);
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            color: #1f2937;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        p {
+            margin-bottom: 1.5rem;
+        }
+        .mission-badge {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #fef08a;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        }
+        .concept-box {
+            background-color: var(--secondary-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+        .quiz-container {
+            border: 2px solid var(--accent-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 3rem;
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .quiz-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        .feedback {
+            margin-top: 1rem;
+            font-weight: 600;
+            display: none;
+        }
+        .feedback.correct { color: #16a34a; }
+        .feedback.incorrect { color: #dc2626; }
+        
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            width: 100%;
+            max-width: 400px;
+            margin-right: 10px;
+            font-family: inherit;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mission-badge">Mission Checkpoint: 架构搭建</div>
+    
+    <h1>Lesson 1: React Flow 与状态架构设计</h1>
+    <p>欢迎来到构建类似 ComfyUI 或 tapNow 的节点编排系统的第一课。在开始编写业务逻辑前，我们需要在架构层面解决一个核心矛盾：<strong>视图与逻辑的耦合</strong>。</p>
+
+    <h2>为什么不能只用 React Flow 的 State？</h2>
+    <p>React Flow 提供了一套非常直观的 <code>nodes</code> 和 <code>edges</code> 状态管理。大多数初学者会直接将业务数据（比如节点的配置参数、执行结果）塞进 React Flow 节点的 <code>data</code> 字段中。这在简单应用中是可行的。</p>
+    
+    <p>但我们的目标是实现 <span class="highlight">工作流断点 (Workflow Breakpoints)</span>——即执行引擎能够在任意节点挂起，并能将当前状态序列化保存到数据库。如果我们把业务数据与包含 <code>x, y</code> 坐标、拖拽状态的视图数据混杂在一起，会导致：</p>
+    <ul>
+        <li><strong>序列化成本极高</strong>：保存进度时必须剥离庞大的 UI 坐标和 DOM 状态。</li>
+        <li><strong>职责不清</strong>：执行引擎不应该关心某个节点在屏幕的左边还是右边。</li>
+        <li><strong>难以实现断点恢复</strong>：从数据库读取状态恢复时，合并 UI 状态与逻辑执行状态极其困难。</li>
+    </ul>
+
+    <div class="concept-box">
+        <strong>核心原则：双层状态架构 (Dual-State Architecture)</strong>
+        <p>在复杂的节点编排系统中，状态必须一分为二：</p>
+        <ol>
+            <li><strong>逻辑状态层 (Logical Graph)</strong>：纯粹的数据模型，包含业务节点的层级、参数和连线关系。它是执行引擎 (Execution Engine) 运行的唯一事实来源。</li>
+            <li><strong>视图状态层 (UI State)</strong>：由 React Flow 维护的展示层状态，包含坐标、缩放比例、节点宽高。它仅仅是逻辑层在二维平面上的“投影”。</li>
+        </ol>
+    </div>
+
+    <h2>使用 Zustand 实现状态分离</h2>
+    <p>作为熟练的 React 开发者，我们使用 Zustand 来构建这个“真相之源 (Single Source of Truth)”。React Flow 组件只是 Zustand 数据的消费者。</p>
+
+<pre><code>// store.ts (简化版架构示例)
+import { create } from 'zustand'
+import { Node, Edge } from 'reactflow'
+
+interface OrchestratorState {
+  // 1. 视图状态 (UI State)
+  uiNodes: Node[];
+  uiEdges: Edge[];
+  
+  // 2. 逻辑状态 (Logical State) - 引擎直接操作这一层
+  workflowDAG: Map&lt;string, BusinessNode&gt;;
+  executionState: 'idle' | 'running' | 'suspended';
+  
+  // 3. Action: UI 变更时同步逻辑层
+  onNodesChange: (changes) => void;
+  // 4. Action: 业务逻辑引起 UI 变化
+  updateNodeData: (id, newData) => void; 
+}
+</code></pre>
+
+    <p>当我们要执行工作流并触发“断点挂起”时，执行引擎只需提取并序列化 <code>workflowDAG</code> 和 <code>executionState</code>，而无需处理庞大的 <code>uiNodes</code> 坐标数组。</p>
+
+    <div class="quiz-container">
+        <div class="quiz-title">🛠 知识固化测验</div>
+        <p>在双层状态架构中，如果一个“等待用户输入”的节点触发了<strong>工作流断点 (Workflow Breakpoint)</strong> 导致系统挂起，系统保存到数据库的上下文应该只包含视图层状态还是逻辑层状态？</p>
+        <div style="display: flex; margin-top: 15px;">
+            <input type="text" id="quiz-input" placeholder="输入你的答案 (例如: 视图层 或 逻辑层)">
+            <button onclick="checkAnswer()">提交</button>
+        </div>
+        <div id="feedback" class="feedback"></div>
+    </div>
+
+    <h2 style="margin-top: 4rem; font-size: 1.25rem;">推荐阅读资源</h2>
+    <p>要深入理解 Zustand 在复杂场景下的切片模式，推荐阅读官方文档：<br>
+    👉 <a href="https://docs.pmnd.rs/zustand/guides/slices-pattern" target="_blank">Zustand Slices Pattern</a></p>
+
+    <p style="margin-top: 2rem; color: #6b7280; font-size: 0.9rem;">
+        <em>任何疑问或不清楚的地方，请随时回到终端向我（你的导师）提问！</em>
+    </p>
+
+    <script>
+        function checkAnswer() {
+            const input = document.getElementById('quiz-input').value.trim();
+            const feedback = document.getElementById('feedback');
+            feedback.style.display = 'block';
+            
+            // Expected length for "逻辑层" is 3 characters.
+            if (input === '逻辑层' || input === '逻辑层状态') {
+                feedback.textContent = "回答正确！仅仅保存逻辑层可以极大地简化序列化过程，并将 UI 与核心执行流程解耦。";
+                feedback.className = "feedback correct";
+            } else {
+                feedback.textContent = "再想一想，视图层包含大量无用的坐标信息，序列化和恢复的成本极高。我们应该保存的是核心的业务真相。";
+                feedback.className = "feedback incorrect";
+            }
+        }
+    </script>
+</body>
+</html>

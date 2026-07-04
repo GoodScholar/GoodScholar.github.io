@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 4: 工作流断点 - 运行时挂起</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #212529;
+            --accent-color: #6f42c1;
+            --secondary-bg: #f3f0ff;
+            --border-color: #dee2e6;
+            --font-main: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            font-family: var(--font-main); line-height: 1.7; color: var(--text-color);
+            background-color: var(--bg-color); max-width: 800px; margin: 0 auto;
+            padding: 40px 20px; font-size: 18px; -webkit-font-smoothing: antialiased;
+        }
+        h1 { font-size: 2.5rem; font-weight: 800; color: #343a40; margin-bottom: 0.5rem; }
+        h2 { font-size: 1.75rem; font-weight: 700; margin-top: 2.5rem; color: #495057; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
+        p { margin-bottom: 1.5rem; }
+        .mission-badge {
+            display: inline-block; background-color: var(--accent-color); color: white;
+            padding: 4px 12px; border-radius: 9999px; font-size: 0.85rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px;
+        }
+        pre {
+            background-color: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 8px;
+            overflow-x: auto; font-size: 0.9rem; line-height: 1.5; font-family: ui-monospace, SFMono-Regular, monospace;
+        }
+        .concept-box {
+            background-color: var(--secondary-bg); border-left: 4px solid var(--accent-color);
+            padding: 20px; border-radius: 0 8px 8px 0; margin: 2rem 0;
+        }
+        .code-highlight { color: #c678dd; font-weight: bold; }
+        .quiz-container {
+            border: 2px solid var(--accent-color); border-radius: 12px; padding: 24px;
+            margin-top: 3rem; background-color: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: var(--accent-color); color: white; border: none; padding: 10px 20px;
+            border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s;
+        }
+        button:hover { opacity: 0.9; }
+        input[type="text"] {
+            padding: 10px; font-size: 1rem; border: 1px solid #ced4da; border-radius: 6px;
+            width: 100%; max-width: 400px; margin-right: 10px; font-family: inherit;
+        }
+        .feedback { margin-top: 1rem; font-weight: 600; display: none; }
+        .feedback.correct { color: #198754; }
+        .feedback.incorrect { color: #dc3545; }
+    </style>
+</head>
+<body>
+
+    <div class="mission-badge">Mission Checkpoint: 架构核心机制</div>
+    
+    <h1>Lesson 4: 运行时挂起与状态保存</h1>
+    <p>上一课我们编写了简单的 <code>while</code> 循环执行队列。但假设某个节点是一个“人工审核 (Human Approval)”节点，用户需要离开页面，明天再来点击“同意”。我们如何在架构上实现这个<strong>工作流断点 (Workflow Breakpoint)</strong>？</p>
+
+    <h2>控制反转：主动中断循环</h2>
+    <p>要实现挂起，节点业务执行逻辑必须能够向执行引擎返回一个特殊的指令，告诉引擎：“我还没有完成，请停止整个队列的后续执行。”</p>
+
+<pre><code>// 节点的执行结果定义
+type NodeExecutionResult = {
+  status: 'SUCCESS' | 'FAILED' | <span class="code-highlight">'SUSPENDED'</span>;
+  outputData?: any;
+};
+
+// 执行引擎中的修改版 Loop
+while (queue.length > 0) {
+  const currentNode = queue[0]; // 注意：暂时不 shift 出队列
+  
+  const result = await executeNodeTask(currentNode);
+  
+  if (result.status === <span class="code-highlight">'SUSPENDED'</span>) {
+    // 触发断点挂起逻辑！
+    saveWorkflowState(queue, completedNodes); // 持久化状态
+    break; // 中断 while 循环，引擎进入休眠
+  }
+  
+  if (result.status === 'SUCCESS') {
+    queue.shift(); // 执行成功，移出队列
+    completedNodes.add(currentNode.id);
+    queue.push(...getOutgoers(currentNode));
+  }
+}
+</code></pre>
+
+    <div class="concept-box">
+        <strong>快照序列化 (State Snapshot)</strong>
+        <p>当 <code>break</code> 触发时，系统会调用 <code>saveWorkflowState</code>。在这里我们极度庆幸在 Lesson 1 中设计了**双层状态架构**：我们不需要保存视图数据！我们只需序列化保存：</p>
+        <ul>
+            <li>当前剩余未执行的 <code>queue</code> (待执行列表)</li>
+            <li>已经执行完成的 <code>completedNodes</code> 及其输出数据缓存</li>
+            <li>当前整个执行图的唯一标识 ID</li>
+        </ul>
+        <p>这三个数据组合起来，就是工作流断点的“现场快照”。</p>
+    </div>
+
+    <h2>React/Redux/Zustand 中的挂起副作用</h2>
+    <p>在你的 Zustand Store 中，当引擎触发 <code>SUSPENDED</code> 时，你可以派发一个 action 让 UI 层显示“流程已挂起：等待操作”。例如，在那个审核节点上方渲染一个“同意/拒绝”按钮。</p>
+
+    <div class="quiz-container">
+        <div style="font-weight: 700; font-size: 1.25rem; margin-bottom: 1rem;">🛠 知识固化测验</div>
+        <p>当引擎捕获到某节点返回了 `SUSPENDED` 状态并执行 <code>break</code> 时，此时执行队列 (Queue) 中位于它下游的节点会被执行吗？</p>
+        <div style="display: flex; margin-top: 15px;">
+            <input type="text" id="quiz-input" placeholder="输入你的答案 (例如: 会 或 不会)">
+            <button onclick="checkAnswer()">提交</button>
+        </div>
+        <div id="feedback" class="feedback"></div>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const input = document.getElementById('quiz-input').value.trim();
+            const feedback = document.getElementById('feedback');
+            feedback.style.display = 'block';
+            
+            if (input === '不会') {
+                feedback.textContent = "回答正确！由于引擎 break 了执行循环，下游节点还没有被推入执行队列（或者即使推入也不会被遍历到），引擎完全静默。";
+                feedback.className = "feedback correct";
+            } else {
+                feedback.textContent = "请再思考一下 while 循环中的 `break` 语句的作用。整个循环都已经停止了。";
+                feedback.className = "feedback incorrect";
+            }
+        }
+    </script>
+</body>
+</html>

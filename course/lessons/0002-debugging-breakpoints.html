@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 2: 编排系统的调试策略</title>
+    <style>
+        :root {
+            --bg-color: #fdfbf7;
+            --text-color: #333333;
+            --accent-color: #e63946;
+            --secondary-bg: #f1faee;
+            --border-color: #a8dadc;
+            --font-main: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        body {
+            font-family: var(--font-main);
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1 { font-size: 2.5rem; font-weight: 800; color: #1d3557; margin-bottom: 0.5rem; }
+        h2 { font-size: 1.75rem; font-weight: 700; margin-top: 2.5rem; color: #457b9d; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
+        p { margin-bottom: 1.5rem; }
+        .mission-badge {
+            display: inline-block; background-color: var(--accent-color); color: white;
+            padding: 4px 12px; border-radius: 9999px; font-size: 0.85rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px;
+        }
+        pre {
+            background-color: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 8px;
+            overflow-x: auto; font-size: 0.9rem; line-height: 1.5; font-family: ui-monospace, SFMono-Regular, monospace;
+        }
+        .concept-box {
+            background-color: var(--secondary-bg); border-left: 4px solid #457b9d;
+            padding: 20px; border-radius: 0 8px 8px 0; margin: 2rem 0;
+        }
+        .code-highlight { color: #f4a261; font-weight: bold; }
+        .quiz-container {
+            border: 2px solid var(--accent-color); border-radius: 12px; padding: 24px;
+            margin-top: 3rem; background-color: white; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            background-color: var(--accent-color); color: white; border: none; padding: 10px 20px;
+            border-radius: 6px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s;
+        }
+        button:hover { opacity: 0.9; }
+        input[type="text"] {
+            padding: 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px;
+            width: 100%; max-width: 400px; margin-right: 10px; font-family: inherit;
+        }
+        .feedback { margin-top: 1rem; font-weight: 600; display: none; }
+        .feedback.correct { color: #2a9d8f; }
+        .feedback.incorrect { color: #e63946; }
+    </style>
+</head>
+<body>
+
+    <div class="mission-badge">Mission Checkpoint: 代码级调试</div>
+    
+    <h1>Lesson 2: 编排系统的调试策略 (Debugging Breakpoints)</h1>
+    <p>在设计类似 ComfyUI 的系统时，你的节点和连线动辄上百个。当某个数据流没有按预期传递时，如何进行高效的<strong>代码级调试 (Debugging)</strong>？传统的 <code>console.log</code> 会在 React Flow 极高频的重绘中瞬间淹没你。</p>
+
+    <h2>1. 避免 console.log 地狱：使用条件断点 (Conditional Breakpoints)</h2>
+    <p>由于 React Flow 的 <code>onNodesChange</code> 会在每次拖拽的像素移动时触发上百次，直接在组件渲染流中打断点会导致浏览器卡死。</p>
+    
+    <div class="concept-box">
+        <strong>技巧：使用 IDE 或浏览器的条件断点</strong><br>
+        在 Source 面板中右键代码行号，选择 "Add conditional breakpoint..."，输入判断条件。例如：<br>
+        <code>node.id === 'target-execution-node' && !node.data.isReady</code>
+    </div>
+
+    <h2>2. 数据流断点：在自定义节点中防御性调试</h2>
+    <p>在你的自定义节点 (Custom Node) 中，业务数据是从 Zustand 还是从 props 传递进来的？如果数据出现了问题，最好的地方是在执行核心逻辑前强行挂起：</p>
+
+<pre><code>import { Handle, Position } from 'reactflow';
+
+export default function ExecutionNode({ data, id }) {
+  // 仅在发现特定异常数据时触发断点
+  if (data.inputValue === undefined && process.env.NODE_ENV === 'development') {
+    <span class="code-highlight">debugger;</span> // 浏览器将在此完美暂停，允许你查看调用栈 (Call Stack)
+  }
+
+  return (
+    &lt;div&gt;
+      &lt;Handle type="target" position={Position.Left} /&gt;
+      &lt;div&gt;处理节点: {id}&lt;/div&gt;
+      &lt;Handle type="source" position={Position.Right} /&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+    <h2>3. 监听内部状态：useStoreApi (脱离渲染循环的查看)</h2>
+    <p>Zustand 和 React Flow 都推荐不要在频繁更新的回调（如 <code>onNodesChange</code>）中读取依赖。使用 <code>useStoreApi</code> (Zustand) 或 <code>useReactFlow().getState()</code> 可以在断点挂起时，直接在控制台中调用获取当前全量状态，而不会触发 React 渲染。</p>
+
+    <div class="quiz-container">
+        <div style="font-weight: 700; font-size: 1.25rem; margin-bottom: 1rem;">🛠 知识固化测验</div>
+        <p>当你想在开发工具中暂停代码执行，但<strong>只想在节点 ID 为 "node-5" 的时候暂停</strong>，你应该使用什么类型的断点？</p>
+        <div style="display: flex; margin-top: 15px;">
+            <input type="text" id="quiz-input" placeholder="输入你的答案 (例如: 条件断点)">
+            <button onclick="checkAnswer()">提交</button>
+        </div>
+        <div id="feedback" class="feedback"></div>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const input = document.getElementById('quiz-input').value.trim();
+            const feedback = document.getElementById('feedback');
+            feedback.style.display = 'block';
+            
+            if (input.includes('条件') || input.toLowerCase().includes('conditional')) {
+                feedback.textContent = "回答正确！条件断点是节点编排系统调试中的最强武器，它能让你从海量的重绘事件中精准捕获目标节点的异常状态。";
+                feedback.className = "feedback correct";
+            } else {
+                feedback.textContent = "不太对哦。为了防止被高频事件淹没，我们需要根据特定条件（如 ID）来暂停，这种断点通常叫...？";
+                feedback.className = "feedback incorrect";
+            }
+        }
+    </script>
+</body>
+</html>
