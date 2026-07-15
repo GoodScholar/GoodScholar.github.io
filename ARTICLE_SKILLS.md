@@ -95,6 +95,7 @@ Skill 通常根据请求内容自动触发。需要明确指定时，直接在�
 - 适配掘金标准 Markdown、完整代码、命令和验证步骤
 - 在公众号系列中维护术语、坑点和篇目衔接
 - 公众号按规则生成封面及正文配图；掘金平台交付本身不强制图片，但在本项目创建新的文章 `.md` 文件时，仍必须按 `AGENTS.md` 生成封面并在 Frontmatter 中写入 `cover`
+- 完整文章交付后询问是否生成本地 HTML 预览；用户确认或已明确要求预览时，按当前平台生成可预览、可复制的页面
 - 在凭证与环境满足要求时发布到公众号草稿箱；掘金仅交付可发布 Markdown，不自动发布
 
 请求明确出现公众号、微信推文、掘金文章、掘金版本或平台发布等语义时触发该 Skill；请求只要求平台成稿但未指定平台时，先询问发布到微信公众号还是掘金。普通技术系列文章使用 `tech-article-expert`。
@@ -115,6 +116,10 @@ Skill 通常根据请求内容自动触发。需要明确指定时，直接在�
 
 ```text
 将确认后的文章和封面发布到公众号草稿箱，发布前先检查凭证和一级标题。
+```
+
+```text
+为这篇掘金文章生成 HTML 预览，方便检查版式并复制 Markdown。
 ```
 
 ## 常用组合
@@ -157,13 +162,12 @@ Skill 通常根据请求内容自动触发。需要明确指定时，直接在�
 │   ├── SKILL.md
 │   └── references/
 │       ├── deep-article-patterns.md
-│       ├── tutorial-patterns.md
-│       ├── deep-article-example.md
-│       └── tutorial-article-example.md
+│       └── tutorial-patterns.md
 └── WeChat-Insight-Skill/
     ├── SKILL.md
     ├── references/
     ├── examples/
+    ├── tests/
     └── tools/
 ```
 
@@ -172,6 +176,7 @@ Skill 通常根据请求内容自动触发。需要明确指定时，直接在�
 - 新增通用写作规则时，优先更新 `tech-article-expert`，不要重新创建功能相同的 Skill。
 - 只有选题和内容规划规则放入 `article-writing`。
 - 平台特有的排版、配图、系列状态和发布规则放入 `WeChat-Insight-Skill`。
+- 本地 HTML 预览仅在用户确认或明确要求后生成，不等同于发布；公众号旧 `publish_to_wechat.py --html-only` 入口继续兼容。
 - 场景细则和长示例放入 `references/`，`SKILL.md` 只保留触发边界、核心流程和引用导航。
 - 修改 Skill 后运行结构校验：
 
