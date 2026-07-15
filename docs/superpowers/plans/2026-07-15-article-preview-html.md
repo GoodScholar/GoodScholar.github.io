@@ -54,6 +54,10 @@ FIXTURE = """# Preview <Title>
 print('<safe>')
 ```
 
+| 字段 | 值 |
+|------|-----|
+| mode | juejin |
+
 ## 发布前检查
 
 无
@@ -96,6 +100,7 @@ class ArticlePreviewTest(unittest.TestCase):
         self.assertIn("复制正文文本", html)
         self.assertNotIn("公众号编辑器", html)
         self.assertNotIn("朋友圈", html)
+        self.assertIn("<table", html)
         self.assertIn("Preview &lt;Title&gt;", html)
 
     def test_output_flag_controls_path_and_invalid_platform_fails(self):
@@ -154,13 +159,15 @@ def generate_preview(markdown_path: Path, platform: str, output_path: Path | Non
         raise FileNotFoundError(markdown_path)
     markdown = markdown_path.read_text(encoding="utf-8")
     title, _ = extract_title_and_body(markdown)
-    article_html = md_to_wechat_html(markdown) if platform == "wechat" else md_to_wechat_html(markdown, primary_color="#2f6feb")
+    article_html = md_to_wechat_html(markdown) if platform == "wechat" else render_juejin_html(markdown)
     output = output_path or markdown_path.with_suffix(".html")
     output.write_text(build_page(title, markdown, article_html, platform), encoding="utf-8")
     return output
 ```
 
 Use `argparse` with positional `markdown`, required `--platform {wechat,juejin}`, optional `--output`. Catch known input errors, print a concise error to stderr, and return non-zero. Do not load config or call any publish API.
+
+Implement `render_juejin_html(markdown: str) -> str` as a local semantic renderer using only the standard library. It must support the existing article subset: `#`/`##`/`###` headings, paragraphs, ordered and unordered lists, blockquotes, fenced code blocks, inline code, bold/italic, links, images, horizontal rules, and pipe tables. Escape text and attributes before interpolation; code blocks use `<pre><code>` with horizontal scrolling; tables use `<table><thead><tbody>` and escaped cell contents. Strip the Skill metadata sections (`## 发布前检查`, `## 转发文案`) from the rendered article body, matching the existing WeChat converter behavior.
 
 - [ ] **Step 2: 添加安全的页面模板和平台文案**
 
