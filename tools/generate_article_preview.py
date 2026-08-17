@@ -9,6 +9,11 @@ def generate_html(input_file, platform):
     with open(input_file, 'r', encoding='utf-8') as f:
         content = f.read()
     
+    if content.startswith('---'):
+        parts = content.split('---', 2)
+        if len(parts) >= 3:
+            content = parts[2].lstrip()
+    
     md = markdown.Markdown(extensions=['fenced_code', 'tables', 'toc'])
     html_content = md.convert(content)
     
